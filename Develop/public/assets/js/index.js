@@ -1,8 +1,3 @@
-const { response } = require('express');
-const fs = require('fs');
-const path = require('path');
-
-
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -34,15 +29,9 @@ const getNotes = () =>
   fetch('/api/notes', {
     method: 'GET',
     headers: {
-      Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-  })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-        }
-    });
+  });
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -183,11 +172,6 @@ const renderNoteList = async (notes) => {
 
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
-
-// get route for index file
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
-});
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
