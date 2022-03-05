@@ -4,4 +4,4 @@ This is a simple application that allows you to write a note with a title and de
 ## Screenshot
 [!note-taker-screenshot][./images/note-taker-screenshot]
 ## URL
-
+chrisphailey.github.io/note-taker/
